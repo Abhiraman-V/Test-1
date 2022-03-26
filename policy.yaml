@@ -1,0 +1,15 @@
+apiVersion: security.kubearmor.com/v1
+kind: KubeArmorHostPolicy
+metadata:
+  name: hsp-cve-2018-15664-docker-cp-symlink-exchange
+spec:
+  tags: ["CVE", "Docker", "symlink-exchange-attack", "CVE-2018-15664"]
+  message: "Alert! docker command executed on host machine"
+  nodeSelector:
+    matchLabels:
+      beta.kubernetes.io/os: linux      # Change with your node label
+  process:
+    severity: 5
+    matchPatterns:
+    - pattern: /**/docker
+    action: Block
