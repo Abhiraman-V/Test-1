@@ -13,5 +13,4 @@ spec:
     matchPatterns:
     - pattern: /**/docker
     action: Block
-  report: allow
-add me
+
